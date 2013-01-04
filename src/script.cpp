@@ -79,6 +79,9 @@ Script::Script(const QString &p_fileName, QObject *p_parent) :
         loadFromXml(content.join(""));
     }
     qSort(m_subtitles.begin(), m_subtitles.end(), compareSubtitleStartTime);
+    int n = m_subtitles.size()-30;
+    for (int i=0; i<n; i++)
+        m_subtitles.removeLast();
 }
 
 Script::ScriptFormat Script::format() const
